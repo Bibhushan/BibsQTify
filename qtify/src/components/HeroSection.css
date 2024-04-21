@@ -1,0 +1,21 @@
+.qtify-hero-section {
+    background-color: #121212;
+    height: 270px;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    color: white;
+}
+
+.qtify-hero-image {
+    width: 212px;
+    height: 212px;
+}
+
+.qtify-hero-text {
+    color: white;
+    font-weight: 500;
+    font-size: 32px;
+    font-family: 'Poppins';
+    text-align: center;
+} 
