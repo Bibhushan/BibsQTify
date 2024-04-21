@@ -22,4 +22,10 @@
 .qtify-button {
     background-color: #121212;
     color: #34C94B;
+    font-size: 16;
+    font-family: 'Poppins';
+    font-weight: 700;
+    border-radius: 8px;
+    border-style: none;
+    padding: 0.75rem;
 }
