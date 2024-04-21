@@ -1,0 +1,25 @@
+.qtify-navbar {
+    background-color: #34C94B;
+    height: 74px;
+    justify-content: space-between;
+    /* margin: 1rem; */
+}
+
+.qtify-logo {
+    margin:1rem 0.5rem;
+    height: 34px;
+}
+
+.qtify-search-bar{
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    width: 568px;
+    height: 48px;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.qtify-button {
+    background-color: #121212;
+    color: #34C94B;
+}
