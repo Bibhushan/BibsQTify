@@ -10,8 +10,6 @@ import logo from "./../assets/logo.png";
 
 const QtifyLogo = ({imgSrc}) => {
 
-    console.log({imgSrc});
-
     return (
         <Box>
             <img src={imgSrc} className='qtify-logo' alt='Qtify Logo'/>
@@ -25,7 +23,7 @@ const QtifySearchBar = ()=>{
         <Paper className="qtify-search-bar" component="form"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}>
             <InputBase
-                sx={{ ml: 1, minWidth:220, textAlign:'center'}}
+                sx={{ ml: 1, width:250, textAlign:'center'}}
                 placeholder="Search an album of your choice"
                 inputProps={{ 'aria-label': 'search an album of your choice' }}
             />
