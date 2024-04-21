@@ -35,18 +35,9 @@ const QtifySearchBar = ()=>{
 }
 const QtifyButton = ({btnText})=>{
     return (
-        <button className='qtify-button'>{btnText}</button>
+        <button variant='contained' className='qtify-button'>{btnText}</button>
     )
 }
-
-// const QtifyButton = styled(Button)(({ theme }) => ({
-//     backgroundColor: "#121212",
-//     color: "#34C94B",
-//     fontSize: 16,
-//     fontFamily:"Poppins",
-//     fontWeight:700,
-//     textTransform:'none'    
-// }));
 
 export default function QtifyNavBar(){
 
