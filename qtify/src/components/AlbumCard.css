@@ -1,0 +1,21 @@
+.qtify-card {
+    width: 159px;
+    height: 205px;
+    border-radius: 12px;
+}
+
+.qtify-card-img {
+    width: 100%;
+    height: 170px;
+}
+
+.qtify-card-chip {
+    background-color: #121212;
+    color: #FFFFFF;
+}
+
+.qtify-album-name {
+    color: #FFFFFF;
+    padding-left: 0px;
+    margin: 0.5rem;
+}

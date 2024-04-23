@@ -2,8 +2,8 @@
     background-color: #121212;
     height: 270px;
     width: 100%;
-    justify-items: center;
-    align-items: center;
+    justify-content: center;
+    align-content: center;
     color: white;
 }
 
