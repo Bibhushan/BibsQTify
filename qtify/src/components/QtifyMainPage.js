@@ -7,13 +7,14 @@ import axios from "axios";
 export default function QtifyMainPage(){
 
     const [topAlbums, setTopAlbums] = useState([]);
+    const [newAlbums, setNewAlbums] = useState([]);
 
-    const fetchTopAlbums = async()=>{
+    const fetchAlbums = async(albumType)=>{
 
         try{
-            const fetchAlbums = await axios.get('https://qtify-backend-labs.crio.do/albums/top');
+            const fetchAlbums = await axios.get('https://qtify-backend-labs.crio.do/albums/' + albumType);
             // console.log(albumType, " Albums: ", fetchAlbums);
-            setTopAlbums(fetchAlbums.data);
+            return fetchAlbums.data;
         }
         catch (e){
             console.log('Error fetching top albums', e);
@@ -22,8 +23,25 @@ export default function QtifyMainPage(){
     }
 
     useEffect(()=>{
-        fetchTopAlbums();
+        const topAlbumsFunc = async()=>{
+            var album = await fetchAlbums('top');
+            setTopAlbums(album);
+        }
+
+        topAlbumsFunc();
+
         console.log('Top Albums updated:', topAlbums);
+
+        const newAlbumsFunc = async()=>{
+            var album = await fetchAlbums('new');
+            setNewAlbums(album);
+        }
+
+        newAlbumsFunc();
+
+        console.log('New Albums updated:', newAlbums);
+
+
     }, []);
 
     return (
@@ -31,6 +49,7 @@ export default function QtifyMainPage(){
             <QtifyNavBar />
             <HeroSection />
             <AlbumContainer albumData={topAlbums} albumName='Top Albums'/>
+            <AlbumContainer albumData={newAlbums} albumName='New Albums'/>
         </div>
     )
 }

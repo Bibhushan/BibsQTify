@@ -39,6 +39,7 @@ const QtifyButton = styled(Button)(() => ({
     color: "#34C94B",
     fontSize: 16,    
     fontWeight:700,
+    fontFamily:'Poppins',
     textTransform:'none',
     padding: '0.5rem 1rem',
     borderRadius:8,
