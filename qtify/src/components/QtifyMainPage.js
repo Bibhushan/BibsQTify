@@ -3,6 +3,7 @@ import HeroSection from "./HeroSection";
 import AlbumContainer from "./AlbumContainer";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import hero_headphones from "./../assets/hero_headphones.png";
 
 export default function QtifyMainPage(){
 
@@ -47,7 +48,11 @@ export default function QtifyMainPage(){
     return (
         <div>
             <QtifyNavBar />
-            <HeroSection />
+            <HeroSection 
+                heading='100 Thousand Songs, ad-free' 
+                subheading='Over thousands podcast episodes' 
+                hero_image={hero_headphones}
+            />
             <AlbumContainer albumData={topAlbums} albumName='Top Albums'/>
             <AlbumContainer albumData={newAlbums} albumName='New Albums'/>
         </div>

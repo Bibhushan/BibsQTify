@@ -17,5 +17,7 @@
 .qtify-album-name {
     color: #FFFFFF;
     padding-left: 0px;
-    margin: 0.5rem;
+    margin: 0.25rem;
+    font-size: 14px;
+    font-family: 'Poppins';
 }

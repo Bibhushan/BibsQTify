@@ -13,27 +13,28 @@ import styled from '@emotion/styled';
 const QtifyChip = styled(Chip)(()=>({
     backgroundColor: '#121212',
     color: '#FFFFFF',
-    alignSelf:'left',
-    padding: '0px 5px'
+    alignSelf:'center',
+    margin:6
 }));
 
 export default function MediaCard({albumImage, albumFollows, albumName}) {
   return (
     <>
         <Card className='qtify-card'>
-            <img
+            {/* <img
                 src={albumImage}
                 alt={albumName}
                 className='qtify-card-img'
-            />
-            <Box sx={{justifyItems:'left', alignContent:'center'}}>
+            /> */}
+            <CardMedia component='img' src={albumImage} sx={{height:170, width:'100%', backgroundSize:'contain'}}/>
+            <Box sx={{display:'flex', alignContent:'center', flexWrap:'wrap'}}>
                 <QtifyChip size='small' label={albumFollows + " Follows"}/>
             </Box>
         </Card>
         <Box sx={{width:160, paddingX:0, paddingY:1, alignItems:'center', justifyItems:'left'}}>
-            <h5 className='qtify-album-name'>
+            <p className='qtify-album-name'>
                 {albumName}
-            </h5>
+            </p>
         </Box>
     </>
   );

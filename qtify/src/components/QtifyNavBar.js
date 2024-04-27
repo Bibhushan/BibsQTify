@@ -20,17 +20,19 @@ const QtifyLogo = ({imgSrc}) => {
 const QtifySearchBar = ()=>{
 
     return (
-        <Paper className="qtify-search-bar" component="form"
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}>
+        <Box className="qtify-search-bar" 
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 568 }}>
             <InputBase
-                sx={{ ml: 1, width:250, textAlign:'center'}}
+                // sx={{ ml: 1, width:250, textAlign:'center'}}
+                className='qtify-search-box' 
                 placeholder="Search an album of your choice"
                 inputProps={{ 'aria-label': 'search an album of your choice' }}
             />
-            <IconButton type="button" sx={{ p: '10px', borderColor:'grey' }} aria-label="search an album of your choice">
+            {/* <IconButton type="button" sx={{ p: '10px', borderColor:'grey' }} aria-label="search an album of your choice"> */}
+            <IconButton type="button" className='qtify-search-icon' aria-label="search an album of your choice">
                 <SearchIcon />
             </IconButton>
-        </Paper>
+        </Box>
     )
 }
 

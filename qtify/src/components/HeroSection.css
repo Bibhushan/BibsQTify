@@ -4,7 +4,7 @@
     width: 100%;
     justify-content: center;
     align-content: center;
-    color: white;
+    color: #FFFFFF;
 }
 
 .qtify-hero-image {
@@ -13,9 +13,10 @@
 }
 
 .qtify-hero-text {
-    color: white;
+    color: #FFFFFF;
     font-weight: 500;
     font-size: 32px;
     font-family: 'Poppins';
     text-align: center;
+    margin: 8px;
 } 
