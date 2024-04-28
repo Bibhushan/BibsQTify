@@ -149,7 +149,7 @@ export default function QtifyContainer({qtifyContainerData, qtifyContainerName, 
     // }, [genre]);
 
     return (
-        <Box sx={{backgroundColor:'#121212', padding:'2rem'}}>
+        <Box sx={{backgroundColor:'#121212', padding:'0rem 2rem 2rem 2rem'}}>
             <Box display='flex' sx={{justifyContent:'space-between', paddingY:'6px'}}>
                 <Typography variant='h6' sx={{color:'#FFFFFF'}}>
                     {qtifyContainerName}

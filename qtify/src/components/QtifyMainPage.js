@@ -6,6 +6,7 @@ import axios from "axios";
 import hero_headphones from "./../assets/hero_headphones.png";
 import { Divider } from "@mui/material";
 import styled from "@emotion/styled";
+import QtifyFAQ from "./QtifyFAQ";
 
 const QtifyHorizontalDivider = styled(Divider)(()=>({
     borderStyle:'solid',
@@ -87,6 +88,8 @@ export default function QtifyMainPage(){
             <QtifyContainer qtifyContainerData={newAlbums} qtifyContainerName='New Albums'/>
             <QtifyHorizontalDivider />
             <QtifyContainer qtifyContainerData={allSongs} qtifyContainerName="Songs" qtifyContainerHasSongs={true}/>
+            <QtifyHorizontalDivider />
+            <QtifyFAQ/>
         </div>
     )
 }

@@ -1,0 +1,36 @@
+.qtify-FAQ {
+    display:flex ;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+    background-color: #121212;
+    color: #FFFFFF;
+    width:100%;
+    margin:0;
+}
+
+.qtify-FAQ-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem;
+}
+
+.qtify-FAQ-item {
+    border: 2px solid;
+    border-color: #FFFFFF !important;
+    border-radius: 1rem ;
+    width:70%;
+    margin:0.5rem;
+}
+
+.qtify-FAQ-question {
+    border-radius: 1rem;
+    background-color: #121212 !important;
+    color: #FFFFFF !important;
+}
+
+.qtify-FAQ-icon {
+    color:#34C94B;
+    font-size:2rem;
+}
