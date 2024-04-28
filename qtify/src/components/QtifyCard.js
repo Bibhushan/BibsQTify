@@ -5,6 +5,7 @@ import { Box, Chip } from '@mui/material';
 import { Container, fontSize } from '@mui/system';
 import "./QtifyCard.css";
 import styled from '@emotion/styled';
+import Tooltip from '@mui/material/Tooltip';
 
 const QtifyChip = styled(Chip)(()=>({
     backgroundColor: '#121212',
@@ -15,9 +16,9 @@ const QtifyChip = styled(Chip)(()=>({
     fontWeight: 300
 }));
 
-export default function QtifyCard({qtifyCardImage, qtifyCardNumber, qtifyCardName, qtifyCardType='album'}) {
+export default function QtifyCard({qtifyCardImage, qtifyCardNumber, qtifyCardName, qtifyCardType='album', numSongs=1}) {
     return (
-        <>
+        <Tooltip title={qtifyCardType === 'album' ? numSongs + ' Songs' : ''} arrow placement='top'>
             <Card className='qtify-card'>
                 {/* <img
                     src={albumImage}
@@ -34,6 +35,6 @@ export default function QtifyCard({qtifyCardImage, qtifyCardNumber, qtifyCardNam
                     {qtifyCardName}
                 </p>
             </Box>
-        </>
+        </Tooltip>
     );
 }

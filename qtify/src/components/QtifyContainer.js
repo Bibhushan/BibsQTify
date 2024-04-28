@@ -76,11 +76,11 @@ function a11yProps(index) {
 }
 
 const getSongsByGenre = (allSongs, genre)=>{
-    console.log('getting songs for ', genre, ' genre')
+    // console.log('getting songs for ', genre, ' genre')
     const songs = allSongs.filter((song)=>{
         return song.genre.key === genre;
     })
-    console.log('fitered songs for ', genre, ' genre: ', songs);
+    // console.log('fitered songs for ', genre, ' genre: ', songs);
     return songs;
 }
 
@@ -105,7 +105,7 @@ const QtifyCarousel = ({carouselData, hasSongs})=>{
                 :
                 carouselData.map((content)=>(
                     <SwiperSlide key={content.id}>                                    
-                        <QtifyCard qtifyCardImage={content.image} qtifyCardName={content.title} qtifyCardNumber={content.follows}/>
+                        <QtifyCard qtifyCardImage={content.image} qtifyCardName={content.title} qtifyCardNumber={content.follows} numSongs={content.songs.length}/>
                     </SwiperSlide>
                 ))
             }
@@ -201,7 +201,12 @@ export default function QtifyContainer({qtifyContainerData, qtifyContainerName, 
                             qtifyContainerData.map((content)=>{
                                 return (
                                     <Grid item key={content.id}>
-                                        <QtifyCard qtifyCardImage={content.image} qtifyCardName={content.title} qtifyCardNumber={content.follows}/>
+                                        <QtifyCard 
+                                            qtifyCardImage={content.image} 
+                                            qtifyCardName={content.title} 
+                                            qtifyCardNumber={content.follows} 
+                                            numSongs={content.songs.length}
+                                        />
                                     </Grid>
                             )})
                             :
