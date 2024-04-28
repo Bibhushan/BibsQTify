@@ -4,9 +4,10 @@ import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import { styled } from '@mui/material/styles';
-import { Box, Button, Toolbar } from "@mui/material";
+import { Box, Button, Divider, Toolbar } from "@mui/material";
 import "./QtifyNavBar.css";
 import logo from "./../assets/logo.png";
+import searchIcon from './../assets/search-icon.svg';
 
 const QtifyLogo = ({imgSrc}) => {
 
@@ -21,16 +22,17 @@ const QtifySearchBar = ()=>{
 
     return (
         <Box className="qtify-search-bar" 
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 568 }}>
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 568 , borderColor:'#121212', borderStyle:'solid'}}>
             <InputBase
                 // sx={{ ml: 1, width:250, textAlign:'center'}}
                 className='qtify-search-box' 
                 placeholder="Search an album of your choice"
                 inputProps={{ 'aria-label': 'search an album of your choice' }}
             />
+            <Divider orientation="vertical" variant="middle" flexItem sx={{borderColor:'#121212', height: 48, margin:0}}/>
             {/* <IconButton type="button" sx={{ p: '10px', borderColor:'grey' }} aria-label="search an album of your choice"> */}
             <IconButton type="button" className='qtify-search-icon' aria-label="search an album of your choice">
-                <SearchIcon />
+                <img src={searchIcon} />
             </IconButton>
         </Box>
     )

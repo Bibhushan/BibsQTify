@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import "./HeroSection.css";
+import "./QtifyHeroSection.css";
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 

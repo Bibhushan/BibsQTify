@@ -1,14 +1,23 @@
 import QtifyNavBar from "./QtifyNavBar";
-import HeroSection from "./HeroSection";
-import AlbumContainer from "./AlbumContainer";
+import HeroSection from "./QtifyHeroSection";
+import QtifyContainer from "./QtifyContainer";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import hero_headphones from "./../assets/hero_headphones.png";
+import { Divider } from "@mui/material";
+import styled from "@emotion/styled";
+
+const QtifyHorizontalDivider = styled(Divider)(()=>({
+    borderStyle:'solid',
+    border: 1,
+    borderColor: '#34C94B'    
+}))
 
 export default function QtifyMainPage(){
 
     const [topAlbums, setTopAlbums] = useState([]);
     const [newAlbums, setNewAlbums] = useState([]);
+    const [allSongs, setAllSongs] = useState([]);
 
     const fetchAlbums = async(albumType)=>{
 
@@ -18,7 +27,19 @@ export default function QtifyMainPage(){
             return fetchAlbums.data;
         }
         catch (e){
-            console.log('Error fetching top albums', e);
+            console.log(`Error fetching ${albumType} albums`, e);
+        }
+
+    }
+
+    const fetchSongs = async()=>{
+
+        try{
+            const fetchSongs = await axios.get('https://qtify-backend-labs.crio.do/songs/');
+            return fetchSongs.data;
+        }
+        catch (e){
+            console.log('Error fetching top songs', e);
         }
 
     }
@@ -31,7 +52,7 @@ export default function QtifyMainPage(){
 
         topAlbumsFunc();
 
-        console.log('Top Albums updated:', topAlbums);
+        // console.log('Top Albums updated:', topAlbums);
 
         const newAlbumsFunc = async()=>{
             var album = await fetchAlbums('new');
@@ -42,6 +63,14 @@ export default function QtifyMainPage(){
 
         console.log('New Albums updated:', newAlbums);
 
+        const allSongsFunc = async()=>{
+            var songs = await fetchSongs();
+            setAllSongs(songs);
+        }
+
+        allSongsFunc();
+
+        console.log('All Songs updated:', allSongs);
 
     }, []);
 
@@ -53,8 +82,11 @@ export default function QtifyMainPage(){
                 subheading='Over thousands podcast episodes' 
                 hero_image={hero_headphones}
             />
-            <AlbumContainer albumData={topAlbums} albumName='Top Albums'/>
-            <AlbumContainer albumData={newAlbums} albumName='New Albums'/>
+            <QtifyContainer qtifyContainerData={topAlbums} qtifyContainerName='Top Albums'/>
+            <QtifyHorizontalDivider />
+            <QtifyContainer qtifyContainerData={newAlbums} qtifyContainerName='New Albums'/>
+            <QtifyHorizontalDivider />
+            <QtifyContainer qtifyContainerData={allSongs} qtifyContainerName="Songs" qtifyContainerHasSongs={true}/>
         </div>
     )
 }
