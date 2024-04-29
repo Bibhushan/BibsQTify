@@ -99,13 +99,18 @@ const QtifyCarousel = ({carouselData, hasSongs})=>{
 
                 carouselData.map((song)=>(
                     <SwiperSlide key={song.id}>
-                        <QtifyCard qtifyCardImage={song.image} qtifyCardName={song.title} qtifyCardNumber={song.likes} qtifyCardType='songs'/>
+                        <QtifyCard 
+                            qtifyCardData={song} 
+                            qtifyCardType='song' 
+                        />
                     </SwiperSlide>
                 ))                                        
                 :
                 carouselData.map((content)=>(
                     <SwiperSlide key={content.id}>                                    
-                        <QtifyCard qtifyCardImage={content.image} qtifyCardName={content.title} qtifyCardNumber={content.follows} numSongs={content.songs.length}/>
+                        <QtifyCard 
+                            qtifyCardData={content}
+                        />
                     </SwiperSlide>
                 ))
             }
@@ -119,7 +124,7 @@ export default function QtifyContainer({qtifyContainerData, qtifyContainerName, 
 
     const [isCollapsed, setIsCollapsed] = useState(true);
     const [genre, setGenre] = useState('all');
-    const [songs, setSongs] = useState(qtifyContainerHasSongs ? qtifyContainerData : []);
+    // const [songs, setSongs] = useState(qtifyContainerHasSongs ? qtifyContainerData : []);
     const [selectedTab, setSelectedTab] = useState(0);
 
     const handleCollapse = ()=>{
@@ -149,7 +154,7 @@ export default function QtifyContainer({qtifyContainerData, qtifyContainerName, 
     // }, [genre]);
 
     return (
-        <Box sx={{backgroundColor:'#121212', padding:'0rem 2rem 2rem 2rem'}}>
+        <Box sx={{backgroundColor:'#121212', padding:'0.5rem 2rem'}}>
             <Box display='flex' sx={{justifyContent:'space-between', paddingY:'6px'}}>
                 <Typography variant='h6' sx={{color:'#FFFFFF'}}>
                     {qtifyContainerName}
@@ -202,10 +207,7 @@ export default function QtifyContainer({qtifyContainerData, qtifyContainerName, 
                                 return (
                                     <Grid item key={content.id}>
                                         <QtifyCard 
-                                            qtifyCardImage={content.image} 
-                                            qtifyCardName={content.title} 
-                                            qtifyCardNumber={content.follows} 
-                                            numSongs={content.songs.length}
+                                            qtifyCardData={content}
                                         />
                                     </Grid>
                             )})

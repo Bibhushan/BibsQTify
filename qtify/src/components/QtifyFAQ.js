@@ -11,10 +11,16 @@ import { useState } from "react";
 
 const QtifyAccordian = styled(Accordion)(()=>({
     borderRadius: '16px',
-    border: '2px solid',
+    border: '1px solid',
     borderColor: '#FFFFFF',
     width: '70%',
-    margin: '32px'
+    margin: '8px',
+    '&:last-of-type': {
+        borderRadius: '16px'
+    } , 
+    '&.Mui-expanded:last-of-type': {
+        marginBottom: '0.5rem'
+    }
 }))
 
 const QtifyAccordianSummary = styled(AccordionSummary)(()=>({

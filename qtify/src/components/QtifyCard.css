@@ -2,6 +2,7 @@
     width: 159px;
     height: 205px;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 .qtify-card-img {

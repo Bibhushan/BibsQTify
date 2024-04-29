@@ -7,10 +7,11 @@ import hero_headphones from "./../assets/hero_headphones.png";
 import { Divider } from "@mui/material";
 import styled from "@emotion/styled";
 import QtifyFAQ from "./QtifyFAQ";
+import QtifyFooter from "./QtifyFooter";
+import { mediaContext } from "./customHooks";
 
 const QtifyHorizontalDivider = styled(Divider)(()=>({
-    borderStyle:'solid',
-    border: 1,
+    border: '0.5px solid',
     borderColor: '#34C94B'    
 }))
 
@@ -19,6 +20,10 @@ export default function QtifyMainPage(){
     const [topAlbums, setTopAlbums] = useState([]);
     const [newAlbums, setNewAlbums] = useState([]);
     const [allSongs, setAllSongs] = useState([]);
+
+    const [currentMedia, setCurrentMedia] = useState({type:'album', data:{}});
+    const [currentSong, setCurrentSong] = useState('');
+    const [currentAlbum, setCurrentAlbum] = useState('');
 
     const fetchAlbums = async(albumType)=>{
 
@@ -62,7 +67,7 @@ export default function QtifyMainPage(){
 
         newAlbumsFunc();
 
-        console.log('New Albums updated:', newAlbums);
+        // console.log('New Albums updated:', newAlbums);
 
         const allSongsFunc = async()=>{
             var songs = await fetchSongs();
@@ -75,6 +80,19 @@ export default function QtifyMainPage(){
 
     }, []);
 
+    // Handles media selection
+    useEffect(()=>{
+        console.log(currentMedia);
+        if (currentMedia.type === 'album'){
+            setCurrentAlbum(currentMedia.data);
+            setCurrentSong('');
+        }  
+        
+        if (currentMedia.type === 'song') {
+            setCurrentSong(currentMedia.data);
+        }
+    }, [currentMedia]);
+
     return (
         <div>
             <QtifyNavBar />
@@ -83,13 +101,25 @@ export default function QtifyMainPage(){
                 subheading='Over thousands podcast episodes' 
                 hero_image={hero_headphones}
             />
-            <QtifyContainer qtifyContainerData={topAlbums} qtifyContainerName='Top Albums'/>
+            <mediaContext.Provider value ={{currentMedia, setCurrentMedia}}>
+                <QtifyContainer qtifyContainerData={topAlbums} qtifyContainerName='Top Albums'/>
+            </mediaContext.Provider>
             <QtifyHorizontalDivider />
-            <QtifyContainer qtifyContainerData={newAlbums} qtifyContainerName='New Albums'/>
+            <mediaContext.Provider value ={{currentMedia, setCurrentMedia}}>
+                <QtifyContainer qtifyContainerData={newAlbums} qtifyContainerName='New Albums'/>
+            </mediaContext.Provider>
             <QtifyHorizontalDivider />
-            <QtifyContainer qtifyContainerData={allSongs} qtifyContainerName="Songs" qtifyContainerHasSongs={true}/>
+            <mediaContext.Provider value={{currentMedia, setCurrentMedia}}>
+                <QtifyContainer 
+                    qtifyContainerData={allSongs} 
+                    qtifyContainerName="Songs" 
+                    qtifyContainerHasSongs={true} 
+                />
+            </mediaContext.Provider>
             <QtifyHorizontalDivider />
             <QtifyFAQ/>
+            <QtifyHorizontalDivider />
+            <QtifyFooter selectedSong={currentSong} albumName={currentAlbum}/>
         </div>
     )
 }
