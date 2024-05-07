@@ -44,10 +44,10 @@ export default function QtifyFooter({selectedSong, albumName}){
         const interval= setInterval(()=>{
             if (sound) {
                 setCurrentLength(Math.round(sound.seek([])));
-                console.log('audio current time: ', currentLength)
-                console.log(sound.seek([]));
+                // console.log('audio current time: ', currentLength)
+                // console.log(sound.seek([]));
             }
-        }, 1000);
+        }, 33);
         return ()=>clearInterval(interval);        
     }, [sound]);
 

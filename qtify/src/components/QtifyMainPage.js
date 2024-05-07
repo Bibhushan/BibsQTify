@@ -11,7 +11,8 @@ import QtifyFooter from "./QtifyFooter";
 import { mediaContext } from "./customHooks";
 
 const QtifyHorizontalDivider = styled(Divider)(()=>({
-    border: '0.5px solid',
+    borderWidth:'thin',
+    borderStyle: 'solid',
     borderColor: '#34C94B'    
 }))
 
@@ -101,6 +102,7 @@ export default function QtifyMainPage(){
                 subheading='Over thousands podcast episodes' 
                 hero_image={hero_headphones}
             />
+            <QtifyHorizontalDivider />
             <mediaContext.Provider value ={{currentMedia, setCurrentMedia}}>
                 <QtifyContainer qtifyContainerData={topAlbums} qtifyContainerName='Top Albums'/>
             </mediaContext.Provider>
